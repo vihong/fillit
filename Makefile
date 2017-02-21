@@ -1,15 +1,20 @@
 .PHONY: all clean fclean re
 
-NAME		= fillit
-SRC			= ft_display_result.c parsing.c check_input.c create_tab.c grille.c
-D_SRC		= src
-OBJ			= $(SRC:.c=.o)
-HEADER		= header
-LIB			= libft.a
+NAME		= 	fillit
+SRC			= 	ft_display_result.c /
+				parsing.c /
+				check_input.c /
+				create_tab.c /
+				grille.c /
 
-CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
-RM			= -rm -rf
+D_SRC		= 	src
+OBJ			= 	$(SRC:.c=.o)
+HEADER		= 	header
+LIB			= 	libft.a
+
+CC			= 	gcc
+CFLAGS		= 	-Wall -Wextra -Werror
+RM			= 	-rm -rf
 
 
 all: libft.a $(NAME)
