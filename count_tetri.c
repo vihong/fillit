@@ -6,7 +6,7 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/18 00:09:36 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/02/21 16:52:23 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/02/21 22:45:34 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	count_tetri(char *buf)
 	return (nb_of_tetri);
 }
 
+/*
 int main ()
 {
 	char*	buf = "AA..\n.A..\n.A..\n....\n\nBBBB\n....\n....\n....\n\nAA..\n.A..\n.A..\n....\n";
@@ -44,3 +45,4 @@ int main ()
 	printf("nb de tetriminos: %d\n", count_tetri(buf));
 	return (0);
 }
+*/
