@@ -6,7 +6,7 @@
 /*   By: icampill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 16:51:16 by icampill          #+#    #+#             */
-/*   Updated: 2017/02/21 20:53:48 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/02/24 19:33:12 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void add_tetrim(t_line **tetris, char *letter, char tab[4][5])
 	for (int i = 0; i < 4; i++)
 		for (int j = 0; j < 5; j++)
 			new->tetris[i][j] = tab[i][j];
-	print_tab(new->tetris);
+//	print_tab(new->tetris);
 
 	new->next = NULL;
 //	new->letter = *letter;

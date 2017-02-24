@@ -26,9 +26,9 @@ void	move_left_once(char tab[5][5], int y_pos);
 void	initialiser(char tab[4][5], int x_pos, int y_pos);
 void	print_tab(char tab[4][5]);
 void 	aff_lst(t_line **tetris);
-void 	add_tetrim(t_line **tetris, char *letter, char tab[4][5]);
+void 	add_tetrim(t_line **tetris, char *lettre, char tab[4][5]);
 int		count_tetri(char *str);
-void	make_tab(char* buf, t_line** tetri, char* letter);
+void	make_tab(char* buf, t_line** tetri, int nb_tetri);
 
 
 #endif
