@@ -6,7 +6,7 @@
 # include <stdlib.h>
 # include "libft.h"
 
-typedef struct 	s_line
+typedef struct		s_line
 {
 	char 			tetris[4][5];
 	char 			letter;
@@ -15,20 +15,22 @@ typedef struct 	s_line
 
 
 
-void	ft_display_result(char *argv);
+
 char*	parsing(char *argv);
+
+int		count_tetri(char *str);
 int		check_input(char *str);
-char**	create_tab(char* buf, char*** tab, size_t len_buf);
-void	print_tetri(char tab[5][5]);
+
+void	make_tab(char* buf, t_line** tetri, int nb_tetri);
+void 	add_tetri(t_line **tetris, char *lettre, char tab[4][5]);
+void 	aff_lst(t_line **tetris);
+void	print_tab(char tab[4][5]);
+
+void	initialiser(char tab[4][5], int x_pos, int y_pos);
 void	ft_swap(char* a, char* b);
 void	move_up_once(char tab[5][5], int x_pos);
 void	move_left_once(char tab[5][5], int y_pos);
-void	initialiser(char tab[4][5], int x_pos, int y_pos);
-void	print_tab(char tab[4][5]);
-void 	aff_lst(t_line **tetris);
-void 	add_tetrim(t_line **tetris, char *lettre, char tab[4][5]);
-int		count_tetri(char *str);
-void	make_tab(char* buf, t_line** tetri, int nb_tetri);
+
 
 
 #endif

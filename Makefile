@@ -1,11 +1,13 @@
 .PHONY: all clean fclean re
 
 NAME		= 	fillit
-SRC			= 	ft_display_result.c /
-				parsing.c /
-				check_input.c /
-				create_tab.c /
-				grille.c /
+SRC			= 	parsing.c \
+				count_tetri.c \
+				check_input.c \
+				make_tab.c \
+				add_tetri.c\
+				aff_lst.c \
+				initialiser.c \
 
 D_SRC		= 	src
 OBJ			= 	$(SRC:.c=.o)
@@ -17,13 +19,13 @@ CFLAGS		= 	-Wall -Wextra -Werror
 RM			= 	-rm -rf
 
 
-all: libft.a $(NAME)
+all: $(LIB) $(NAME)
 
 $(NAME): $(OBJ)
-		@$(CC) main.c -I$(HEADER) $(CFLAGS) -L./libft/ -lft $^ -o $(NAME)
+		@$(CC) main.c $(CFLAGS) -I$(HEADER) -L./libft/ -lft $^ -o $(NAME)
 
 %.o: $(D_SRC)/%.c
-		@$(CC) -c -I$(HEADER) $(CFLAGS) $^ -o $@
+		@$(CC) -c $(CFLAGS) -I$(HEADER) $^ -o $@
 
 $(LIB):
 		cd libft && make all
