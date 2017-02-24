@@ -6,7 +6,7 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 19:47:21 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/02/24 22:15:29 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/02/25 00:39:07 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	make_tab(char* buf, t_line** tetri, int nb_tetri )
 				else
 					tab[i][j] = tmp[k];
 			}	
+		add_tetri(tetri, &lettre, tab);
 		k++;
 		lettre++;
-		add_tetri(tetri, &lettre, tab);
 	}
 }
 
