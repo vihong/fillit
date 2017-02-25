@@ -14,7 +14,7 @@ typedef struct		s_line
 }					t_line;
 
 
-
+	/* ETAPE 1 */ 
 
 char*	parsing(char *argv);
 
@@ -28,8 +28,10 @@ void	print_tab(char tab[4][5]);
 
 void	initialiser(char tab[4][5], int x_pos, int y_pos);
 void	ft_swap(char* a, char* b);
-void	move_up_once(char tab[5][5], int x_pos);
-void	move_left_once(char tab[5][5], int y_pos);
+void	move_up_once(char tab[4][5], int x_pos);
+void	move_left_once(char tab[4][5], int y_pos);
+
+char	**create_square(int sq_size);
 
 
 

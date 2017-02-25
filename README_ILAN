@@ -1,2 +1,20 @@
 make
 ./fillit test/valid_test2
+
+
+ETAPE 1) PARSING
+tout ok
+
+ETAPE 2) CHECKING
+qques tests encore à runner. voir check_input.c
+
+ETAPE 3) CONVERSION INTO INSTANCES
+tout ok
+
+ETAPE 4) SOLVER
+create_sq() créé
+put_or_not() créé
+
+
+ETAPE 5) SOL_DISPLAY
+
