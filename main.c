@@ -6,7 +6,7 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 18:02:21 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/02/25 01:28:31 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/02/25 04:04:16 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		main(int argc, char **argv)
 		if (check_input(buf) == 0)
 		{
 			ft_putstr("[ETAPE 2/5] CHECKING: FAIL\n\n");
+			ft_putstr("error");
 			return (0);
 		}
 		else
@@ -48,6 +49,8 @@ int		main(int argc, char **argv)
 			aff_lst(&tetri1);
 
 			printf("[ETAPE 4/5] SOLVER: to come\n\n");
+			
+			printf("[ETAPE 5/5] SOLUTION_DISPLAY: to come\n\n");
 		}
 	}
 	return (0);
