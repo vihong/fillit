@@ -6,13 +6,13 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 01:23:36 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/02/28 04:45:14 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/02/28 04:54:18 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-#define SQ_SIZE 10
+#define SQ_SIZE 8
 #define INDEX 2
 
 /*renvoie 1 si elle peut placer le tetriminos, ou 0 si elle ne peut pas.*/
@@ -121,27 +121,33 @@ void	print_sq(char** sq, int sq_size)
 int		main()
 {
 	char**	sq = NULL;
-	char	tetri[4][5] = { [0] = "AA..",
+	char	tetri1[4][5] = {[0] = "AA..",
 							[1] = ".A..",
 							[2] = ".A..",
 							[3] = "...."}; 
 
+	char	tetri2[4][5] = {[0] = "BBBB",
+							[1] = "....",
+							[2] = "....",
+							[3] = "...."}; 
 	sq = create_square(SQ_SIZE);
 
 	for (int i = 0; i < SQ_SIZE; i++)
 		for (int j = 0 ; j < SQ_SIZE; j++)
 			sq[i][j] = '.';
 
-	sq[1][6] = 'X';
 	printf("Grille à remplir:\n");
 	print_sq(sq, SQ_SIZE);
 	
-	put_tetri(sq, tetri, INDEX);
+	put_tetri(sq, tetri1, 0);
+	put_tetri(sq, tetri2, 24);
 	printf("Tetriminos:\n");
-	print_tab(tetri);
+	print_tab(tetri1);
+	printf("\n");
+	print_tab(tetri2);
 
 	printf("\n");
-	printf("Grille remplie à l'indice %d:\n", INDEX);
+	printf("Grille remplie:\n");
 	print_sq(sq, SQ_SIZE);
 
 
