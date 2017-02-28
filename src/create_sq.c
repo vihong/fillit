@@ -6,13 +6,13 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 02:08:38 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/02/25 02:29:18 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/02/28 04:24:12 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-#define SQ_SIZE 10
+#define SQ_SIZE 5
 
 
 	// Donne lui une dimension et il te crée un carré de cette même dimension. 
@@ -44,7 +44,7 @@ int		main()
 	
 	for (int i = 0; i < SQ_SIZE; i++)
 		for (int j = 0 ; j < SQ_SIZE; j++)
-			sq[i][j] = 'x';
+			sq[i][j] = '!';
 
 	for (int i = 0; i < SQ_SIZE; i++)
 	{
