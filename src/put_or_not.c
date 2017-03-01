@@ -6,152 +6,89 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 01:23:36 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/02/28 04:54:18 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/01 19:31:10 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-#define SQ_SIZE 8
-#define INDEX 2
 
-/*renvoie 1 si elle peut placer le tetriminos, ou 0 si elle ne peut pas.*/
+#define INDEX 3
 
-
-// Donne lui le tableau à remplir et un tetri et il te dit s'il peut le mettre dedans (renvoie 1) ou pas (renvoie 0).
-
-
-void		tetri_copy(char** sq, char tetri[4][5], int m, int n)
+// Si on peut mettre le tetri, elle renvoie 1, sinon 0.
+int			check_place(char** sq, int sq_size, char tetri[4][5], int pos)
 {
+	int m_start = pos / sq_size;		
+	int n_start = pos % sq_size;		
+
 	int i = 0;
 	int j = 0;
-	int m_max = m + 4;
-	int n_max = n + 4;
 
-	for (i = 0; m < m_max && i < 4; m++, i++)
-		for (j = 0; n < n_max && j < 5; j++, n++)
-		{
-			printf("(m: %d, n: %d) with (i: %d, j: %d) \n\n", m, n, i, j);
-			if (n == n_max)
-			{
-				m++;
-				n = n - 3;
-				i++;
-			}
-			sq[m][n] = tetri[i][j];
-		}
-			
-}
-
-
-void		from_pos_to_coor(int pos)
-{
-	
-}
-
-void		put_tetri(char** sq, char tetri[4][5], int pos)
-{
-	int i = 0;
-	int j = 0;
-	int m = 0;
-	int n = 0;
-	int m_start;
-	int n_start;
-	int m_max = 0;
-	int n_max = 0;
-	
-	m_start = pos / SQ_SIZE;
-	n_start = pos % SQ_SIZE;
-	m = 0;
-	while (m < SQ_SIZE)
+	i = 0;
+	while (i < 4)
 	{
-		n = 0;
-		while (n < SQ_SIZE)
+		j = 0;
+		while (j < 4)
 		{
-			if (m == m_start && n == n_start)
+			if (tetri[i][j] != '.')
 			{
-				m_max = m + 4;
-				while (m < m_max)
-				{
-					n_max = n + 4;	
-					j = 0;
-					while (n < n_max && j < 5)
-					{
-/*						printf("m: %d\n", m);
-						printf("n: %d\n", n);
-						printf("i: %d\n", i);
-						printf("j: %d\n\n", j);
-						*/
-						if (tetri[i][j] != '.')
-						{
-							sq[m][n] = tetri[i][j];
-						}
-
-						n++;
-						j++;
-					}
-					n = n - 4;
-					m++;
-					i++;
-				}
+				if (sq[m_start + i][n_start + j] != '\0')
+					return 0;
+				if (sq[m_start + i][n_start + j] != '.')
+					return 0;
 			}
-			n++;
+			j++;
 		}
-		m++;
+		i++;
+	}
+	return 1;
+}
+
+void		put_tetri(char** sq, int sq_size, char tetri[4][5], int pos) 
+{
+	int m_start = pos / sq_size;		
+	int n_start = pos % sq_size;		
+
+	int i = 0;
+	int j = 0;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			if (tetri[i][j] != '.')
+			{
+				sq[m_start + i][n_start + j] = tetri[i][j];
+			}
+			j++;
+		}
+		i++;
 	}
 }
 
-
-void	print_sq(char** sq, int sq_size)
+void		remove_tetri(char** sq, int sq_size, char tetri[4][5], int pos) 
 {
-	for (int i = 0; i < SQ_SIZE; i++)
+	int m_start = pos / sq_size;		
+	int n_start = pos % sq_size;		
+
+	int i = 0;
+	int j = 0;
+
+	i = 0;
+	while (i < 4)
 	{
-		for (int j = 0; j < SQ_SIZE; j++)
-			printf("%c", sq[i][j]);
-		printf("\n");
+		j = 0;
+		while (j < 4)
+		{
+			if (tetri[i][j] != '.')
+			{
+				sq[m_start + i][n_start + j] = '.';
+			}
+			j++;
+		}
+		i++;
 	}
-		
-	printf("\n");
-}
-
-
-
-
-
-int		main()
-{
-	char**	sq = NULL;
-	char	tetri1[4][5] = {[0] = "AA..",
-							[1] = ".A..",
-							[2] = ".A..",
-							[3] = "...."}; 
-
-	char	tetri2[4][5] = {[0] = "BBBB",
-							[1] = "....",
-							[2] = "....",
-							[3] = "...."}; 
-	sq = create_square(SQ_SIZE);
-
-	for (int i = 0; i < SQ_SIZE; i++)
-		for (int j = 0 ; j < SQ_SIZE; j++)
-			sq[i][j] = '.';
-
-	printf("Grille à remplir:\n");
-	print_sq(sq, SQ_SIZE);
-	
-	put_tetri(sq, tetri1, 0);
-	put_tetri(sq, tetri2, 24);
-	printf("Tetriminos:\n");
-	print_tab(tetri1);
-	printf("\n");
-	print_tab(tetri2);
-
-	printf("\n");
-	printf("Grille remplie:\n");
-	print_sq(sq, SQ_SIZE);
-
-
-
-	return (0);
 }
 

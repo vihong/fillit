@@ -11,6 +11,7 @@ typedef struct		s_line
 	char 			tetris[4][5];
 	char 			letter;
 	struct s_line 	*next;
+	struct s_line	*prev;
 }					t_line;
 
 
@@ -32,7 +33,11 @@ void	move_up_once(char tab[4][5], int x_pos);
 void	move_left_once(char tab[4][5], int y_pos);
 
 char	**create_square(int sq_size);
-
-
+int		check_place(char** sq, int sq_size, char tetri[4][5], int pos);
+void	put_tetri(char** sq, int sq_size, char tetri[4][5], int pos);
+void	remove_tetri(char** sq, int sq_size, char tetri[4][5], int pos);
+int		ft_sqrt(int nb);
+void	print_sq(char** sq, int sq_size);
+int		sq_of(int nb);
 
 #endif

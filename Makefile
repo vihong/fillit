@@ -8,6 +8,11 @@ SRC			= 	parsing.c \
 				add_tetri.c\
 				aff_lst.c \
 				initialiser.c \
+				create_sq.c \
+				ft_sqrt.c \
+				put_or_not.c \
+				sq_of.c \
+				fill_sq.c \
 
 D_SRC		= 	src
 OBJ			= 	$(SRC:.c=.o)

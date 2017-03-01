@@ -6,7 +6,7 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 02:08:38 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/02/28 04:24:12 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/01 19:23:15 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,22 @@
 
 
 	// Donne lui une dimension et il te crée un carré de cette même dimension. 
-char**	create_square(int square_size)
+char**	create_square(int sq_size)
 {
 	char**	tab = NULL;
+	int i = 0;
 
-
-	tab = malloc(sizeof(char*) * (square_size + 1));
+	tab = (char**)malloc(sizeof(char*) * (sq_size + 1));
 	if (tab == NULL)
 		return 0;
 
-	for (int i = 0; i < square_size; i++)
+	for (i = 0; i <= sq_size; i++)
 	{
-		*(tab + i)  = (char*)malloc(sizeof(char) * (square_size + 1));
+		*(tab + i)  = (char*)malloc(sizeof(char) * (sq_size + 1));
 		if (*(tab + i) == NULL)
 			return (0);
 	}
+	ft_bzero(tab[--i], sq_size);
 	return (tab);
 }
 

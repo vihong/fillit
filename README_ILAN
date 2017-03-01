@@ -1,5 +1,5 @@
 make
-./fillit test/valid_test2
+./fillit tests/valid_test2
 
 
 ETAPE 1) PARSING
