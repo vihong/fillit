@@ -39,5 +39,6 @@ void	remove_tetri(char** sq, int sq_size, char tetri[4][5], int pos);
 int		ft_sqrt(int nb);
 void	print_sq(char** sq, int sq_size);
 int		sq_of(int nb);
+int		fill_sq(char** sq, int* sq_size, t_line** tetri1, int* nb_tetri);
 
 #endif

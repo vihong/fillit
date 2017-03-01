@@ -6,7 +6,7 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 18:02:21 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/03/01 19:48:13 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/01 23:29:44 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(int argc, char **argv)
 //	int			ind = 0;
 	int			nb_tetri;
 	int			sq_size;
-	int			pile_tetri = 0;
+//	int			pile_tetri = 0;
 
 	if (argc != 2)
 		ft_putstr("usage: ./fillit file\n");
@@ -30,7 +30,7 @@ int		main(int argc, char **argv)
 	{
 		buf = parsing(argv[1]);
 		nb_tetri = count_tetri(buf);
-		pile_tetri = nb_tetri;
+
 //		printf("[ETAPE 1/5] PARSING: SUCCESS\n");
 //		printf("%s\n", buf);
 		if (check_input(buf) == 0)
@@ -54,56 +54,29 @@ int		main(int argc, char **argv)
 
 			printf("[ETAPE 4/5] SOLVER: to come\n\n");
 
-
-
-
 			sq_size = ft_sqrt((nb_tetri * 4));
 			printf("----> sq = %d\n", sq_size);
 			while (nb_tetri * 4 > sq_of(sq_size))
 				sq_size++;
-			while (ind != sq_size * sq_size)
-			{
+
+
+//			while ()
 			sq = create_square(sq_size);
-			for (int i = 0; i < sq_size; i++)
-				for (int j = 0 ; j < sq_size; j++)
-					sq[i][j] = '.';
 
-			printf("\nAvant remplissage:\n");
 			print_sq(sq, sq_size);
-			printf("pile_tetri (at start): %d\n", pile_tetri);
-			tmp = tetri1;
-			while (ind < (sq_size * sq_size) && tmp && pile_tetri != 0)
-			{
-				printf("ind: %d\n", ind);
-
-				if (check_place(sq, sq_size, tmp->tetris, ind) == 1)
-				{
-					put_tetri(sq, sq_size, tmp->tetris, ind);
-					pile_tetri--;
-					printf("pile_tetri: %d\n", pile_tetri);
-					tmp = tmp->next;
-					ind = 0;
-				}
-	
-				ind++;
-			}
-
-
-
-
-
-
-
+			printf("lulu\n");
+			fill_sq(sq, &sq_size, &tetri1, &nb_tetri);
+//			sq_size++;
 
 			printf("\nApres remplissage (NOT FINISHED):\n");
 			print_sq(sq, sq_size);
 //			check_place
 //				sq_size++
-			if (pile_tetri == 0)
-			{
-				printf("\n\n>> SUCCESS <<\n\n");
-				print_sq(sq, sq_size);
-			}
+//			if (pile_tetri == 0)
+//			{
+//				printf("\n\n>> SUCCESS <<\n\n");
+//				print_sq(sq, sq_size);
+//			}
 		}
 	}
 	return (0);

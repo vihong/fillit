@@ -6,7 +6,7 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/25 01:23:36 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/03/01 19:31:10 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/01 23:22:56 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			check_place(char** sq, int sq_size, char tetri[4][5], int pos)
 		{
 			if (tetri[i][j] != '.')
 			{
-				if (sq[m_start + i][n_start + j] != '\0')
+				if (sq[m_start + i][n_start + j] == '\0')
 					return 0;
 				if (sq[m_start + i][n_start + j] != '.')
 					return 0;
