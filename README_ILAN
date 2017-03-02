@@ -1,5 +1,5 @@
 make
-./fillit tests/valid_test2
+./fillit tests/valid_test7
 
 
 ETAPE 1) PARSING
@@ -12,9 +12,12 @@ ETAPE 3) CONVERSION INTO INSTANCES
 tout ok
 
 ETAPE 4) SOLVER
-create_sq() créé
-put_or_not() créé
+tout ok
+fait en iteratif. D'autres groupes aussi l'ont fait en iteratif.
 
 
 ETAPE 5) SOL_DISPLAY
+tout ok
 
+
+Ca va tranquille boss ?

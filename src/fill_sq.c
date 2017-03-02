@@ -6,7 +6,7 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 19:37:05 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/03/01 23:30:25 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/02 03:03:18 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int		fill_sq(char** sq, int* sq_size, t_line** tetri1, int* nb_tetri)
 	for (int i = 0; i < *sq_size; i++)
 		for (int j = 0 ; j < *sq_size; j++)
 			sq[i][j] = '.';
-	printf("\nAvant remplissage:\n");
-	print_sq(sq, *sq_size);
-	printf("pile_tetri: %d (at start)\n" , pile_tetri);
+//	printf("\nAvant remplissage:\n");
+//	print_sq(sq, *sq_size);
+//	printf("pile_tetri: %d (at start)\n" , pile_tetri);
 	tmp = *tetri1;
 	while (ind < ((*sq_size) * (*sq_size)) && pile_tetri != 0)
 	{
@@ -40,7 +40,7 @@ int		fill_sq(char** sq, int* sq_size, t_line** tetri1, int* nb_tetri)
 		}
 		ind++;
 	}
-	if (ind == sq_of(*sq_size) && pile_tetri == 0)
+	if (/*ind == sq_of(*sq_size) && */pile_tetri == 0)
 		return 1;
 	else
 		return 0;
