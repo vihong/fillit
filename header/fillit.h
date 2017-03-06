@@ -5,13 +5,16 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
+# include "libft.h"
+# include "stdbool.h"
 
 typedef struct		s_line
 {
 	char 			tetris[4][5];
 	char 			letter;
-	struct s_line 	*next;
+	int				ind;
 	struct s_line	*prev;
+	struct s_line 	*next;
 }					t_line;
 
 
@@ -40,5 +43,6 @@ int		ft_sqrt(int nb);
 void	print_sq(char** sq, int sq_size);
 int		sq_of(int nb);
 int		fill_sq(char** sq, int* sq_size, t_line** tetri1, int* nb_tetri);
+int		estValide(char** sq, int* sq_size, t_line** tetri1, int* nb_tetri);
 
 #endif
