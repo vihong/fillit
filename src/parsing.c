@@ -6,13 +6,12 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 17:46:56 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/01/26 18:37:09 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/09 02:43:42 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/* malloc evolutif pour créer un buf pile de la taille du fichier entré*/
 char	*read_base(int fd)
 {
 	char	buf[2];
@@ -42,28 +41,24 @@ char	*read_base(int fd)
 	return (dest);
 }
 
-
-/* fonction qui permet de maipuler le fichier en paramètre via un fd*/
 char	*parsing(char *argv)
 {
 	int		fd;
-	char*	buf;
+	char	*buf;
 
 	fd = 0;
 	fd = open(argv, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("can't open file");
+		ft_putendl("can't open file");
 		return (0);
 	}
 	buf = read_base(fd);
 	close(fd);
 	if (fd == -1)
 	{
-		printf("close() failed");
+		ft_putendl("close() failed");
 		return (0);
 	}
-//	ft_putstr(buf);
-//	printf("%d\n", fd);
 	return (buf);
 }

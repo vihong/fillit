@@ -6,13 +6,16 @@ SRC			= 	parsing.c \
 				check_input.c \
 				make_tab.c \
 				add_tetri.c\
-				aff_lst.c \
+				display.c \
 				initialiser.c \
 				create_sq.c \
 				ft_sqrt.c \
 				put_or_not.c \
 				sq_of.c \
-				fill_sq.c \
+				solver.c \
+				fill_with_dots.c \
+				get_closest_sq_size.c \
+				get_smallest_sq.c \
 
 D_SRC		= 	src
 OBJ			= 	$(SRC:.c=.o)

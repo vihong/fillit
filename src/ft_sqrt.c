@@ -6,14 +6,13 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 00:30:28 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/03/01 17:43:59 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/09 02:32:51 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-
-int    ft_sqrt(int nb)
+int		ft_sqrt(int nb)
 {
 	int a;
 
@@ -23,14 +22,9 @@ int    ft_sqrt(int nb)
 	if (nb > 0)
 	{
 		while (nb > a * a)
-		{
 			a++;
-		}
 		if (a * a == nb)
-		{
 			return (a);
-		}
 	}
 	return (--a);
 }
-

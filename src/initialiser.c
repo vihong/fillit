@@ -6,13 +6,13 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/21 18:07:15 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/02/21 19:13:04 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/09 02:36:12 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_swap(char* a, char* b)
+void	ft_swap(char *a, char *b)
 {
 	char c;
 
@@ -23,39 +23,64 @@ void	ft_swap(char* a, char* b)
 
 void	move_up_once(char tab[4][5], int x_pos)
 {
-	int i = x_pos;
-	int k = 0;
+	int i;
+	int k;
 
-	for (k = 0; tab[i][k] && k < 4; k++)
-		ft_swap(&tab[i][k], &tab[i -1][k]);
+	i = x_pos;
+	k = -1;
+	while (tab[i][k] && k++ < 4)
+		ft_swap(&tab[i][k], &tab[i - 1][k]);
 }
-
 
 void	move_left_once(char tab[4][5], int y_pos)
 {
-	int j = y_pos;
-	int k = 0;
+	int j;
+	int k;
 
-	for (k = 0; tab[k][j] && k < 4; k++)
+	j = y_pos;
+	k = 0;
+	while (tab[k][j] && k < 4)
+	{
 		ft_swap(&tab[k][j], &tab[k][j - 1]);
+		k++;
+	}
 }
-
 
 void	initialiser(char tab[4][5], int x_pos, int y_pos)
 {
-	int i = 0;
-	int j = 0;
+	int i;
+	int j;
 
-	while ((tab[0][0] == '.') && (tab[0][1] == '.') && (tab[0][2] == '.') && (tab[0][3] == '.'))
+	while ((tab[0][0] == '.') && (tab[0][1] == '.')
+			&& (tab[0][2] == '.') && (tab[0][3] == '.'))
 	{
 		i = 0;
-		for (i = 0; i <= 2; i++ )
+		while (i <= 2)
+		{
 			move_up_once(tab, x_pos + i);
+			i++;
+		}
 	}
-	while (tab[0][0] == '.' && tab[1][0] == '.' && tab[2][0] == '.' && tab[3][0] == '.')
+	while (tab[0][0] == '.' && tab[1][0] == '.'
+			&& tab[2][0] == '.' && tab[3][0] == '.')
 	{
 		j = 0;
-		for (j = 0; j <= 2; j++)
+		while (j <= 2)
+		{
 			move_left_once(tab, y_pos + j);
+			j++;
+		}
+	}
+}
+
+void	init_each_tetri(t_line **tetri1)
+{
+	t_line	*tmp;
+
+	tmp = *tetri1;
+	while (tmp)
+	{
+		initialiser(tmp->tetris, 1, 1);
+		tmp = tmp->next;
 	}
 }

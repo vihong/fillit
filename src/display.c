@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_tetri.c                                      :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/18 00:09:36 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/03/08 23:12:40 by vi-hong          ###   ########.fr       */
+/*   Created: 2017/03/08 22:16:07 by vi-hong           #+#    #+#             */
+/*   Updated: 2017/03/09 02:31:54 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	count_tetri(char *buf)
+void	print_tab(char tab[4][5])
 {
 	int i;
-	int nb_of_n;
-	int nb_of_tetri;
+	int j;
 
-	i = 0;
-	nb_of_n = 0;
-	nb_of_tetri = 0;
-	while (buf[i])
+	i = -1;
+	while (i++ < 4)
 	{
-		if (buf[i] == '\n')
-		{
-			nb_of_n++;
-			if (nb_of_n == 4)
-			{
-				nb_of_tetri++;
-				nb_of_n = -1;
-			}
-		}
-		i++;
+		j = -1;
+		while (j++ < 5)
+			ft_putchar(tab[i][j]);
 	}
-	return (nb_of_tetri);
+}
+
+void	print_sq(char **sq, int sq_size)
+{
+	int i;
+	int j;
+
+	i = -1;
+	while (i++ < sq_size - 1)
+	{
+		j = -1;
+		while (j++ < sq_size)
+			ft_putchar(sq[i][j]);
+		ft_putchar('\n');
+	}
 }

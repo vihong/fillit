@@ -6,20 +6,40 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 23:33:36 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/02/24 22:10:30 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/08 23:11:33 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
 #include <fillit.h>
 
-void	ft_putchar(char c)
+/*
+int		error_nb_hashtag(char* str)
 {
-	write(1, &c, 1);	
+
 }
 
-// man check_input : "si input non valide renvoie 0, sinon 1".
+
+int		error_nb_char(char* str)
+{
+
+}
+
+
+int		error_nb_new_line(char* str)
+{
+
+}
+
+int		error_nb_char(char* str)
+{
+
+}
+
+int		error_nb_char(char* str)
+{
+
+}
+*/
 
 int		check_input(char *str)
 {
@@ -34,13 +54,13 @@ int		check_input(char *str)
 	lettre = 0;
 	if (!*str)
 		return (0);
+	if (count_tetri(str) > 26)
+		return (0);
 	while (str[i] == '\n' || (str[i] == '#') || str[i] == '.')
 	{
-//		printf("cc = %d\n", count_char); 
 		if (count_char == 19)
 		{
-//			printf("je rentre\n");
-			count_char = -1;
+			count_char = -2;
 			if (lettre != 4)
 			{
 				printf("error 0\n");
@@ -64,12 +84,9 @@ int		check_input(char *str)
 		if (str[i] == '#')
 		{
 			lettre++;
-//			printf("lettre = %d\n", lettre);
-//			printf("str[i] = %d\n\n", i);
+
 			if (lettre % 4 > 3)
 			{
-//				printf("str[i] = %d\n", i);
-//				printf("lettre = %d\n", lettre);
 				printf("error 3");
 				return (0);
 			}
@@ -88,7 +105,6 @@ int		check_input(char *str)
 		count_char++;
 
 	}
-//	printf("lettre ===> %d\n", lettre);
 	if (lettre != 4)
 	{
 		printf("error 5: trop de dièses!");
@@ -100,28 +116,3 @@ int		check_input(char *str)
 	else
 		return (0);
 }
-
-/*
-int main ()
-{
-	int i;
-	char *str;
-
-//	str = "##..\n....\n....\n..##\n";
-	str = "....\n...#\n...#\n...#\n\n....\n....\n....\n...#\n\n.###\n...#\n....\n....\n\n....\n..##\n.##.\n....\n";
-//	str = "AA..\n.AA.\n....\n....\n\n..BB\n..BB\n....\n....\n\nCCCC\n....\n....\n....\n";
-	i = 0;
-	printf("%s\n", str);
-	printf("\nchech_input: %d\n", check_input(str));
-	return (0);
-}
-*/
-
-// error 1: fichier vide --> OK !
-// error 1: fichier avec plus de 26 tetriminos --> à faire
-// error 2: autre chose que des dieses --> OK !
-// error 3: plus de 4 diese --> OK !
-// error 4: mauvais tetrimos : il ne se touche pas par ex
-// error 5: tetri mis en dernière ligne : aurait du fonctionner
-// // 
-
