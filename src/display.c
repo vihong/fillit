@@ -6,7 +6,7 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 22:16:07 by vi-hong           #+#    #+#             */
-/*   Updated: 2017/03/09 02:31:54 by vi-hong          ###   ########.fr       */
+/*   Updated: 2017/03/10 14:49:22 by vi-hong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	print_sq(char **sq, int sq_size)
 	while (i++ < sq_size - 1)
 	{
 		j = -1;
-		while (j++ < sq_size)
+		while (j++ < sq_size - 1)
 			ft_putchar(sq[i][j]);
 		ft_putchar('\n');
 	}
