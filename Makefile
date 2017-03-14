@@ -30,10 +30,10 @@ RM			= 	-rm -rf
 all: $(LIB) $(NAME)
 
 $(NAME): $(OBJ)
-		@$(CC) main.c $(CFLAGS) -I$(HEADER) -L./libft/ -lft $^ -o $(NAME)
+		@$(CC) main.c $(CFLAGS) -I. -L./libft/ -lft $^ -o $(NAME)
 
-%.o: $(D_SRC)/%.c
-		@$(CC) -c $(CFLAGS) -I$(HEADER) $^ -o $@
+%.o: %.c
+		@$(CC) -c $(CFLAGS) -I. $^ -o $@
 
 $(LIB):
 		cd libft && make all
