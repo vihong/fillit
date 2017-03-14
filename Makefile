@@ -27,16 +27,14 @@ CFLAGS		= 	-Wall -Wextra -Werror
 RM			= 	-rm -rf
 
 
-all: $(LIB) $(NAME)
-
+all: $(NAME)
+	
 $(NAME): $(OBJ)
+		make -C ./libft
 		@$(CC) main.c $(CFLAGS) -I. -L./libft/ -lft $^ -o $(NAME)
 
 %.o: %.c
 		@$(CC) -c $(CFLAGS) -I. $^ -o $@
-
-$(LIB):
-		cd libft && make all
 
 clean:
 		@$(RM) $(OBJ) && cd libft && make clean
