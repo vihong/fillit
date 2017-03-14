@@ -6,12 +6,20 @@
 /*   By: vi-hong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 15:52:57 by vi-hong           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2017/03/14 16:49:23 by vi-hong          ###   ########.fr       */
+=======
+/*   Updated: 2017/03/13 16:29:58 by vi-hong          ###   ########.fr       */
+>>>>>>> cb8dc44faf2df9476dd10f53d9e6219e4bc760f5
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb8dc44faf2df9476dd10f53d9e6219e4bc760f5
 int		tetri_valid(char* buf_sub)
 {
 	int i = 0;
@@ -32,6 +40,10 @@ int		tetri_valid(char* buf_sub)
 					(buf_sub[i + 5] == '#') || (buf_sub[i - 5] == '#'))
 			{
 				nb_contact++;
+<<<<<<< HEAD
+=======
+
+>>>>>>> cb8dc44faf2df9476dd10f53d9e6219e4bc760f5
 			}*/
 			if (buf_sub[i] == '#')
 			{
