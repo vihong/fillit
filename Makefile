@@ -39,7 +39,7 @@ $(LIB):
 		cd libft && make all
 
 clean:
-		@$(RM) $(OBJ)
+		@$(RM) $(OBJ) && cd libft && make clean
 
 fclean: clean
 		@$(RM) $(NAME) && cd libft && make fclean
